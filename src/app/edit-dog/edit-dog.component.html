@@ -21,23 +21,29 @@
     </label>
 
     <label for="breed">
+        Breed
         <input type="text" name="breed" id="breed" value="{{dog.breed}}" required>
     </label>
     <label for="height">
+        Height
         <input type="number" name="height" id="height" value="{{dog.height}}" required>
     </label>
     <label for="weight">
+        Weight
         <input type="number" name="weight" id="weight" value="{{dog.weight}}" required>
     </label>
 
-    <label for="image">
-        <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+    <label for="photo">
+        Photo
+        <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
     </label>
 
     <label for="about">
+        About
         <textarea name="about" id="about" value="{{dog.about}}"></textarea>
     </label>
-
-    <button type="submit">Edit {{name}}</button>
-    <button>Cancel</button>
+    <div class="buttons">
+    <button class="edit" type="submit">Edit {{name}}</button>
+    <button class="cancel">Cancel</button>
+</div>
 </form>

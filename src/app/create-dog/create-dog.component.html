@@ -1,6 +1,7 @@
 <h1>Creating new Dog</h1>
 
 <form action="">
+    <div class="inputs">
     <label for="name">
         Name
         <input type="text" name="name" id="name" required>
@@ -21,23 +22,31 @@
     </label>
 
     <label for="breed">
+        Breed
         <input type="text" name="breed" id="breed" required>
     </label>
     <label for="height">
+        Height
         <input type="number" name="height" id="height" required>
     </label>
     <label for="weight">
+        Weight
         <input type="number" name="weight" id="weight" required>
     </label>
 
-    <label for="image">
-        <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+    <label for="photo">
+        Photo
+        <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
     </label>
 
     <label for="about">
+        About
         <textarea name="about" id="about"></textarea>
     </label>
+</div>
+    <div class="buttons">
 
-    <button type="submit">Create Dog</button>
-    <button>Cancel</button>
+        <button class="confirm" type="submit">Create Dog</button>
+        <button class="cancel">Cancel</button>
+    </div>
 </form>

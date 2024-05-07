@@ -1,6 +1,7 @@
-<div>
-    <p>Dog</p>
-    <p>Some breed</p>
-    <img src="" alt="">
-    <p></p>
+<div class="card" [ngClass]="{'male': dog.gender === 'male','female': dog.gender === 'female'}">
+    <div class="info">
+        <h2>Dog</h2>
+        <p class="breed">Some breed</p>
+    </div>
+    <img src="https://www.azpetshop.com.br/blog/wp-content/uploads/2021/09/Chihuahua.jpg" alt="Photo">
 </div>

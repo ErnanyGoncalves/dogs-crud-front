@@ -1,0 +1,36 @@
+.card{
+    
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    &.male{
+        border: 2px solid cornflowerblue;
+    }
+
+    &.female{
+        border: 2px solid lightcoral;
+    }
+
+    .info{
+        padding: 1rem 1rem 0.5rem 1rem;
+        h2{
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .breed{
+            color:grey;
+            font-style: italic;
+        }
+    }
+
+    img{
+        max-width: 100%;
+        height: auto;
+        border-radius: 0 0 20px 20px;
+    }
+
+    
+}

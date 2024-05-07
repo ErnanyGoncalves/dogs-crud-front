@@ -1,21 +1,28 @@
-<button>X</button>
-<img src="" alt="">
-<div>
-<div>
-<h1>Dog</h1>
-<p>Male</p>
-<p>Some breed</p>
-</div>
-<p>15cm</p>
-<p>40kg</p>
+<div class="modal">
+    
+    <img src="https://www.azpetshop.com.br/blog/wp-content/uploads/2021/09/Chihuahua.jpg" alt="Photo">
 
-<p>About</p>
+    <button class="close">X</button>
+    <div class="info">
+        <div>
+            
+            <h2 [ngStyle]="{'color': dog.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">Dog</h2>
+            
+            
+            
+            <p class="breed">Some breed</p>
+        </div>
+        <div class="body-data">
+        <p>15cm</p>
+        <p>40kg</p>
+        </div>
 
-<!-- when deleting -->
-<p>Dog's data will be lost forever</p>
-<p>Are you sure that you want to delete it?</p>
-
-<button>Edit</button>
-<button>Delete</button>
-
+        <p>Some text</p>
+        
+        <div class="buttons">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    
+        </div>
+    </div>
 </div>

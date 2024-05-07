@@ -1,0 +1,43 @@
+label[for="name"] {
+    grid-area: name;
+  }
+
+  label[for="age"] {
+    grid-area: age;
+  }
+  label[for="gender"] {
+    grid-area: gender;
+  }
+  label[for="breed"] {
+    grid-area: breed;
+  }
+  label[for="height"] {
+    grid-area: height;
+  }
+  label[for="weight"] {
+    grid-area: weight;
+  }
+
+  label[for="photo"] {
+    grid-area: photo;
+  }
+
+  label[for="about"] {
+    
+    grid-area: about;
+    textarea{
+        height: 100%;
+        resize: none;
+    }
+  }
+
+
+  .inputs{
+    display: grid;
+    grid-template:
+    "name age gender" auto
+    "breed height weight" auto
+    "photo photo photo" auto
+    "about about about" 6rem / 2fr 1fr 1fr; 
+    column-gap: 0.5rem;
+  }
