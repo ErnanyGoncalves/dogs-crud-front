@@ -1,1 +1,42 @@
-<p>edit-dog works!</p>
+<h1>Editing {{name}}</h1>
+
+<form action="">
+    <label for="name">
+        Name
+        <input type="text" name="name" id="name" value="{{dog.name}}" required>
+    </label>
+
+    <label for="age">
+        Age
+        <input type="number" name="age" id="age" value="{{dog.age}}" required>
+    </label>
+
+    <label for="gender">
+        Gender
+        <select name="gender" id="gender">
+            <option value="-------">-------</option>
+            <option value="male" selected="{{dog.gender==='male'}}">Male</option>
+            <option value="female" selected="{{dog.gender==='female'}}">Female</option>
+        </select>
+    </label>
+
+    <label for="breed">
+        <input type="text" name="breed" id="breed" value="{{dog.breed}}" required>
+    </label>
+    <label for="height">
+        <input type="number" name="height" id="height" value="{{dog.height}}" required>
+    </label>
+    <label for="weight">
+        <input type="number" name="weight" id="weight" value="{{dog.weight}}" required>
+    </label>
+
+    <label for="image">
+        <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+    </label>
+
+    <label for="about">
+        <textarea name="about" id="about" value="{{dog.about}}"></textarea>
+    </label>
+
+    <button type="submit">Edit {{name}}</button>
+</form>

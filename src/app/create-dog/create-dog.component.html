@@ -1,1 +1,42 @@
-<p>create-dog works!</p>
+<h1>Creating new Dog</h1>
+
+<form action="">
+    <label for="name">
+        Name
+        <input type="text" name="name" id="name" required>
+    </label>
+
+    <label for="age">
+        Age
+        <input type="number" name="age" id="age" required>
+    </label>
+
+    <label for="gender">
+        Gender
+        <select name="gender" id="gender">
+            <option value="-------">-------</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </label>
+
+    <label for="breed">
+        <input type="text" name="breed" id="breed" required>
+    </label>
+    <label for="height">
+        <input type="number" name="height" id="height" required>
+    </label>
+    <label for="weight">
+        <input type="number" name="weight" id="weight" required>
+    </label>
+
+    <label for="image">
+        <input type="file" name="image" id="image" accept="image/png, image/jpeg" required>
+    </label>
+
+    <label for="about">
+        <textarea name="about" id="about"></textarea>
+    </label>
+
+    <button type="submit">Create Dog</button>
+</form>

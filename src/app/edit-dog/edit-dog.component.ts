@@ -8,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './edit-dog.component.scss'
 })
 export class EditDogComponent {
+  name="Dog"
 
+  dog={
+    name:"Dog",
+    age:1,
+    gender:'male',
+    breed:'Some breed',
+    height: 15,
+    weight: 40,
+    image: null,
+    about: 'Some text'
+  }
 }
