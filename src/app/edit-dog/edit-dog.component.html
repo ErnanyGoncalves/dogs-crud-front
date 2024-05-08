@@ -1,6 +1,7 @@
 <h1>Editing {{name}}</h1>
 
 <form action="">
+    <div class="inputs">
     <label for="name">
         Name
         <input type="text" name="name" id="name" value="{{dog.name}}" required>
@@ -42,6 +43,7 @@
         About
         <textarea name="about" id="about" value="{{dog.about}}"></textarea>
     </label>
+</div>
     <div class="buttons">
     <button class="edit" type="submit">Edit {{name}}</button>
     <button class="cancel">Cancel</button>
