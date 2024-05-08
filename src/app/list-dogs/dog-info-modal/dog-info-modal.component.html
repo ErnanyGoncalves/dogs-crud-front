@@ -1,27 +1,25 @@
 <div class="modal">
     
-    <img src="https://www.azpetshop.com.br/blog/wp-content/uploads/2021/09/Chihuahua.jpg" alt="Photo">
+    <img src="{{dog.photo}}" alt="{{dog.name}}">
 
-    <button class="close">X</button>
+    <a routerLink="/dogs" class="close">X</a>
     <div class="info">
         <div>
+        
+            <h2 [ngStyle]="{'color': dog.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">{{dog.name}}</h2>
             
-            <h2 [ngStyle]="{'color': dog.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">Dog</h2>
-            
-            
-            
-            <p class="breed">Some breed</p>
+            <p class="breed">{{dog.breed}}</p>
         </div>
         <div class="body-data">
-        <p>15cm</p>
-        <p>40kg</p>
+        <p>{{dog.height}}cm</p>
+        <p>{{dog.weight}}kg</p>
         </div>
 
-        <p>Some text</p>
+        <p>{{dog.about}}</p>
         
         <div class="buttons">
-        <button class="edit">Edit</button>
-        <button class="delete">Delete</button>
+        <button class="edit" (click)="goToEditForm()">Edit</button>
+        <button class="delete" (click)="deleteDog(dog.id)">Delete</button>
     
         </div>
     </div>

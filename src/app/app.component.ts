@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListDogsComponent } from './list-dogs/list-dogs.component';
 import { CreateDogComponent } from './create-dog/create-dog.component';
 import { EditDogComponent } from './edit-dog/edit-dog.component';
+import { DogService } from './dog.service';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,4 @@ import { EditDogComponent } from './edit-dog/edit-dog.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  
 }

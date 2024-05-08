@@ -1,3 +1,11 @@
-My Dogs
-<app-dog-card></app-dog-card>
-<app-dog-info-modal></app-dog-info-modal>
+<h1>My Dogs</h1>
+<button routerLink="/dogs/new">New Dog</button>
+@for(d of dogs; track d.id){
+    <app-dog-card [dog]="d"></app-dog-card>
+
+}@empty{
+    <p>There are no dogs.</p>
+}
+@if(dogInfo){
+<app-dog-info-modal [dog]="dogInfo"></app-dog-info-modal>
+}
