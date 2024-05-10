@@ -5,7 +5,7 @@
     <div class="info">
         <div>
         
-            <h2 [ngStyle]="{'color': dogInfo.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">{{dogInfo.name}}</h2>
+            <h1 [ngStyle]="{'color': dogInfo.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">{{dogInfo.name}}</h1>
             
             <p class="breed">{{dogInfo.breed}}</p>
         </div>
@@ -17,6 +17,7 @@
         <p>{{dogInfo.about}}</p>
         
         <div class="buttons">
+            <button class="cancel" [routerLink]="['/dogs']">Back</button>
         <button class="edit" (click)="goToEditForm()">Edit</button>
         <button class="delete" (click)="deleteDog(dogInfo.id)">Delete</button>
     

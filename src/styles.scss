@@ -1,3 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+
+:root{
+  --roboto-font:  'Roboto', sans-serif;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-700:700;
+
+  --male-gender-color: #3188B1;
+  --female-gender-color: #E57AA6;
+
+  --black-color: #04070E;
+  --gray-color:#E4E9EC;
+  --white-color:#FCFFFF;
+
+  --pure-base-color: #FBCA90;
+  --light-base-color: #FDEED6;
+  --medium-base-color: #E0B27C;
+  --dark-base-color: #9A713B;
+
+  --pure-warning-color: #FFC127;
+  --light-warning-color: #FFF1CD;
+  --medium-warning-color: #FFD23B;
+  --dark-warning-color: #B88400;
+
+  --pure-success-color: #7EB41B;
+  --light-success-color: #EAF6CF;
+  --medium-success-color: #95CA36;
+  --dark-success-color: #467F00;
+
+  --pure-neutral-color: #2E76CB;
+  --light-neutral-color: #C0F2FF;
+  --medium-neutral-color: #6AB7F8;
+  --dark-neutral-color: #004997;
+
+  --pure-danger-color: #EC2A29;
+  --light-danger-color: #FFDBDB;
+  --medium-danger-color: #FFA6A6;
+  --dark-danger-color: #A90000;
+
+  --font-size-sm-1: 0.833rem;
+  --font-size-sm-2: 0.694rem;
+  
+  --font-size-1: 1rem;
+  --font-size-2: 1.2rem;
+  --font-size-3: 1.44rem;
+  --font-size-4: 1.728rem;
+  --font-size-5: 2.074rem;
+  --font-size-6: 2.488rem;
+  --font-size-7: 2.986rem;
+
+}
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -19,16 +75,15 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+  font-family: var(--roboto-font);
 	line-height: 1;
 }
 ol, ul {
@@ -47,20 +102,42 @@ table {
 	border-spacing: 0;
 }
 
-
-
-
   /* My css */
 
+  h1{
+    font-size: var(--font-size-7);
+    font-weight: var(--font-weight-500);
+  }
+  h2{
+    font-size: var(--font-size-6);
+  }
+  h3{
+    font-size: var(--font-size-5);
+  }
+  h4{
+    font-size: var(--font-size-4);
+  }
+  h5{
+    font-size: var(--font-size-3);
+  }
+  h6{
+    font-size: var(--font-size-2);
+  }
+
+  p{
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-300);
+  }
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
   label{
-    font-weight: bold;
     display: flex;
     flex-direction: column;
-    
-    margin-bottom: 0.5rem;
-    input,textarea,select{
-      margin-top: 0.25rem;
-    }
   }
 
   .buttons{
@@ -69,27 +146,101 @@ table {
     justify-content: right;
     
   }
+  
 
   button{
-    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-weight: var(--font-weight-400);
+    // letter-spacing: 10%;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
 
+    &.base{
+      background-color: var(--pure-base-color);
+      color: var(--black-color);
+      &:hover{
+        background-color: var(--light-base-color);
+      }
+      &:focus{
+        background-color: var(--medium-base-color);
+        
+      }
+      &:active{
+        background-color: var(--dark-base-color);
+        color: var(--white-color);
+      }
+    }
+    
     &.confirm{
-      background-color: green;
-      color: white;
+      background-color: var(--pure-success-color);
+      color: var(--black-color);
+      &:hover{
+        background-color: var(--light-success-color);
+      }
+      &:focus{
+        background-color: var(--medium-success-color);
+        
+      }
+      &:active{
+        background-color: var(--dark-success-color);
+        color: var(--white-color);
+      }
     }
 
     &.cancel{
-      background-color: blue;
-      color: white;
+      background-color: var(--pure-neutral-color);
+      color: var(--white-color);
+      &:hover{
+        background-color: var(--light-neutral-color);
+        color: var(--black-color);
+      }
+      &:focus{
+        background-color: var(--medium-neutral-color);
+        color: var(--black-color);
+      }
+      &:active{
+        background-color: var(--dark-neutral-color);
+      }
     }
 
     &.edit{
-      background-color: orange;
-      color: black;
+      background-color: var(--pure-warning-color);
+      color: var(--black-color);
+      &:hover{
+        background-color: var(--light-warning-color);
+      }
+      &:focus{
+        background-color: var(--medium-warning-color);
+        
+      }
+      &:active{
+        background-color: var(--dark-warning-color);
+        color: var(--white-color);
+      }
     }
 
     &.delete{
-      background-color: red;
-      color: white;
+      background-color: var(--pure-danger-color);
+      color: var(--white-color);
+      &:hover{
+        background-color: var(--light-danger-color);
+        color: var(--black-color);
+      }
+      &:focus{
+        background-color: var(--medium-danger-color);
+        color: var(--black-color);
+      }
+      &:active{
+        background-color: var(--dark-danger-color);
+        color: var(--white-color);
+      }
+    }
+
+    &.button:disabled{
+      background-color: var(--gray-color);
+      color: var(--black-color);
+      cursor: not-allowed;
     }
   }

@@ -7,7 +7,7 @@ import { NgStyle } from '@angular/common';
 @Component({
   selector: 'app-dog-detail',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle,RouterLink],
   templateUrl: './dog-detail.component.html',
   styleUrl: './dog-detail.component.scss'
 })
