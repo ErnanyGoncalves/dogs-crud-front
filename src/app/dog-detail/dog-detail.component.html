@@ -1,0 +1,25 @@
+<div class="modal">
+    
+    <img src="{{dogInfo.photo}}" alt="{{dogInfo.name}}">
+
+    <div class="info">
+        <div>
+        
+            <h2 [ngStyle]="{'color': dogInfo.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">{{dogInfo.name}}</h2>
+            
+            <p class="breed">{{dogInfo.breed}}</p>
+        </div>
+        <div class="body-data">
+        <p>{{dogInfo.height}}cm</p>
+        <p>{{dogInfo.weight}}kg</p>
+        </div>
+
+        <p>{{dogInfo.about}}</p>
+        
+        <div class="buttons">
+        <button class="edit" (click)="goToEditForm()">Edit</button>
+        <button class="delete" (click)="deleteDog(dogInfo.id)">Delete</button>
+    
+        </div>
+    </div>
+</div>

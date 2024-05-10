@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DogInfoModalComponent } from './dog-info-modal.component';
+import { DogDetailComponent } from './dog-detail.component';
 
-describe('DogInfoModalComponent', () => {
-  let component: DogInfoModalComponent;
-  let fixture: ComponentFixture<DogInfoModalComponent>;
+describe('DogDetailComponent', () => {
+  let component: DogDetailComponent;
+  let fixture: ComponentFixture<DogDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DogInfoModalComponent]
+      imports: [DogDetailComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DogInfoModalComponent);
+    fixture = TestBed.createComponent(DogDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
