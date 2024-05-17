@@ -7,7 +7,7 @@
         Name<span class="required">*</span>
     </div>
         <input type="text" name="name" id="name" ngModel #name="ngModel" required>
-        @if(formData.submitted && name.status === "INVALID" || name.touched && !name.valid){
+        @if(name.touched && !name.valid){
             <div>
             <small>Name is required</small>
             </div>
@@ -19,7 +19,7 @@
         Age<span class="required">*</span>
     </div>
         <input type="number" name="age" id="age" min="0" max="20" ngModel #age="ngModel" required>
-        @if(formData.submitted && age.status === "INVALID" || age.touched && !age.valid){
+        @if(age.touched && !age.valid){
             <div>
             <small>Age is required</small>
             </div>
@@ -34,7 +34,7 @@
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
-        @if(formData.submitted && gender.status === "INVALID" || gender.touched && !gender.valid){
+        @if(gender.touched && !gender.valid){
             <div>
             <small>Gender is required</small>
             </div>
@@ -46,7 +46,7 @@
         Breed<span class="required">*</span>
     </div>
         <input type="text" name="breed" id="breed" ngModel #breed="ngModel" required>
-        @if(formData.submitted && breed.status === "INVALID" || breed.touched && !breed.valid){
+        @if(breed.touched && !breed.valid){
             <div>
             <small>Breed is required</small>
             </div>
@@ -57,7 +57,7 @@
         Height<span class="required">*</span>
     </div>
         <input type="number" name="height" id="height" min="0.1" ngModel #height="ngModel" required>
-        @if(formData.submitted && height.status === "INVALID" || height.touched  && !height.valid){
+        @if(height.touched  && !height.valid){
             <div>
             <small>Height is required</small>
             </div>
@@ -68,7 +68,7 @@
         Weight<span class="required">*</span>
     </div>
         <input type="number" name="weight" id="weight" min="0.1" ngModel #weight="ngModel" required>
-        @if(formData.submitted && weight.status === "INVALID" || weight.touched && !weight.valid){
+        @if(weight.touched && !weight.valid){
             <div>
             <small>Weight is required</small>
             </div>
@@ -99,7 +99,7 @@
 </div>
     <div class="buttons">
 
-        <button class="confirm" type="submit">Create Dog</button>
-        <button class="cancel">Cancel</button>
+        <button class="confirm" type="submit" [disabled]="!formData.valid || !validateUrl(photo.value)">Create Dog</button>
+        <button class="cancel" type="button" [routerLink]="['/dogs']">Cancel</button>
     </div>
 </form>

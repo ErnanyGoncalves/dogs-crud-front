@@ -3,7 +3,9 @@
     display: flex;
     flex-direction: column;
     border: 2px solid black;
+    max-height: 280px;
     border-radius: 20px;
+    overflow: hidden;
 
     &.male{
         border: 2px solid var(--male-gender-color);
@@ -17,14 +19,23 @@
         padding: 1rem 1rem 0.5rem 1rem;
         
         .breed{
-            color:var(--gray-color);
+            color:var(--dark-gray-color);
             font-style: italic;
         }
     }
 
-    img{
-        max-width: 100%;
-        height: auto;
+    .img-container {
+        flex-grow: 1; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; 
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
         border-radius: 0 0 20px 20px;
     }
 

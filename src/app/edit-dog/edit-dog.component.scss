@@ -1,3 +1,12 @@
+label span.required{
+  color: var(--pure-danger-color);
+}
+
+label small{
+  color: var(--pure-danger-color);
+  font-size: var(--font-size-sm-1);
+}
+
 label[for="name"] {
     grid-area: name;
   }

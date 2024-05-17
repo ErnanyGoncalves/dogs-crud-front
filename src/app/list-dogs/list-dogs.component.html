@@ -1,5 +1,8 @@
+
+<div class="list-header">
 <h1>My Dogs</h1>
-<button class="base" routerLink="/dogs/new">New Dog</button>
+<button class="base" type="button" routerLink="/dogs/new">New Dog</button>
+</div>
 @if(dogs.length > 0){
 <div class="grid">
 @for(d of dogs; track d.id){
