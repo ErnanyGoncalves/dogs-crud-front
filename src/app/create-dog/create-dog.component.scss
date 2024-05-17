@@ -1,4 +1,14 @@
-label[for="name"] {
+
+label span.required{
+  color: var(--pure-danger-color);
+}
+
+label small{
+  color: var(--pure-danger-color);
+  font-size: var(--font-size-sm-1);
+}
+
+div label[for="name"] {
     grid-area: name;
   }
 

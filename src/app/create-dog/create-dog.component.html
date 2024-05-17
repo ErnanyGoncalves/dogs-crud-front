@@ -1,47 +1,100 @@
 <h1>Creating new Dog</h1>
 
-<form action="">
+<form (ngSubmit)="onSubmit(formData)" #formData="ngForm">
     <div class="inputs">
     <label for="name">
-        Name
-        <input type="text" name="name" id="name" required>
+        <div>
+        Name<span class="required">*</span>
+    </div>
+        <input type="text" name="name" id="name" ngModel #name="ngModel" required>
+        @if(formData.submitted && name.status === "INVALID" || name.touched && !name.valid){
+            <div>
+            <small>Name is required</small>
+            </div>
+        }
     </label>
 
     <label for="age">
-        Age
-        <input type="number" name="age" id="age" required>
+        <div>
+        Age<span class="required">*</span>
+    </div>
+        <input type="number" name="age" id="age" min="0" max="20" ngModel #age="ngModel" required>
+        @if(formData.submitted && age.status === "INVALID" || age.touched && !age.valid){
+            <div>
+            <small>Age is required</small>
+            </div>
+        }
     </label>
 
     <label for="gender">
-        Gender
-        <select name="gender" id="gender">
-            <option value="-------">-------</option>
+        <div>
+        Gender<span class="required">*</span>
+    </div>
+        <select name="gender" id="gender" required #gender="ngModel" ngModel>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
+        @if(formData.submitted && gender.status === "INVALID" || gender.touched && !gender.valid){
+            <div>
+            <small>Gender is required</small>
+            </div>
+        }
     </label>
 
     <label for="breed">
-        Breed
-        <input type="text" name="breed" id="breed" required>
+        <div>
+        Breed<span class="required">*</span>
+    </div>
+        <input type="text" name="breed" id="breed" ngModel #breed="ngModel" required>
+        @if(formData.submitted && breed.status === "INVALID" || breed.touched && !breed.valid){
+            <div>
+            <small>Breed is required</small>
+            </div>
+        }
     </label>
     <label for="height">
-        Height
-        <input type="number" name="height" id="height" required>
+        <div>
+        Height<span class="required">*</span>
+    </div>
+        <input type="number" name="height" id="height" min="0.1" ngModel #height="ngModel" required>
+        @if(formData.submitted && height.status === "INVALID" || height.touched  && !height.valid){
+            <div>
+            <small>Height is required</small>
+            </div>
+        }
     </label>
     <label for="weight">
-        Weight
-        <input type="number" name="weight" id="weight" required>
+        <div>
+        Weight<span class="required">*</span>
+    </div>
+        <input type="number" name="weight" id="weight" min="0.1" ngModel #weight="ngModel" required>
+        @if(formData.submitted && weight.status === "INVALID" || weight.touched && !weight.valid){
+            <div>
+            <small>Weight is required</small>
+            </div>
+        }
     </label>
 
     <label for="photo">
-        Photo
-        <input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
+        <div>
+        Photo<span class="required">*</span>
+    </div>
+        <input type="text" name="photo" id="photo" ngModel #photo="ngModel" required>
+        @if(formData.submitted || photo.touched  ){
+            <div>
+            @if(!photo.valid || photo.value===''){
+            <small>Photo is required</small>
+            }
+            @else if(!validateUrl(photo.value)){
+                <small>Invalid URL. It needs to end with .jpg or .png</small>
+            }
+            </div>
+        }
     </label>
 
     <label for="about">
         About
-        <textarea name="about" id="about"></textarea>
+        <textarea name="about" id="about" ngModel></textarea>
     </label>
 </div>
     <div class="buttons">

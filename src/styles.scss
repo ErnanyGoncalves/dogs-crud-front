@@ -137,6 +137,7 @@ a{
 
   label{
     display: flex;
+    font-weight: var(--font-weight-400);
     flex-direction: column;
   }
 
@@ -152,7 +153,7 @@ a{
     border-radius: 25px;
     padding: 0.75rem 1.5rem;
     font-weight: var(--font-weight-400);
-    // letter-spacing: 10%;
+    letter-spacing: 10%;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
@@ -243,4 +244,14 @@ a{
       color: var(--black-color);
       cursor: not-allowed;
     }
+  }
+
+
+  input, select{
+    border-radius: 4px;
+    border: 1px solid var(--black-color);
+    color: var(--black-color);
+    font-family: var(--roboto-font);
+    font-size: var(--font-size-sm-1);
+    padding: 2px 8px;
   }

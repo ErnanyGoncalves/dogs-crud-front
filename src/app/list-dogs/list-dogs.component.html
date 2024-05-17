@@ -1,8 +1,11 @@
 <h1>My Dogs</h1>
 <button class="base" routerLink="/dogs/new">New Dog</button>
+@if(dogs.length > 0){
+<div class="grid">
 @for(d of dogs; track d.id){
     <app-dog-card [dog]="d"></app-dog-card>
-
-}@empty{
+}
+</div>
+}@else{
     <p>There are no dogs.</p>
 }
