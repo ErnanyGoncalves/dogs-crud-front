@@ -6,6 +6,7 @@ label span.required{
 label small{
   color: var(--pure-danger-color);
   font-size: var(--font-size-sm-1);
+  font-weight: var(--font-weight-400);
 }
 
 div label[for="name"] {
@@ -49,5 +50,5 @@ div label[for="name"] {
     "breed height weight" auto
     "photo photo photo" auto
     "about about about" 6rem / 2fr 1fr 1fr; 
-    column-gap: 0.5rem;
+    gap: 0.5rem;
   }

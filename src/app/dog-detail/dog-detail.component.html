@@ -1,15 +1,15 @@
-<div class="modal">
-    
-    <img src="{{dogInfo.photo}}" alt="{{dogInfo.name}}">
-
+<div class="detail">
+    <div class="img-container">
+        <img src="{{dogInfo.photo}}" alt="{{dogInfo.name}}">
+    </div>
     <div class="info">
         <div>
         
-            <h1 [ngStyle]="{'color': dogInfo.gender === 'male' ? 'cornflowerblue' : 'lightcoral'}">{{dogInfo.name}}</h1>
+            <h1 [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">{{dogInfo.name}}</h1>
             
             <p class="breed">{{dogInfo.breed}}</p>
         </div>
-        <div class="body-data">
+        <div class="body-data" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">
             <p>{{dogInfo.age}} year(s)</p>
         <p>{{dogInfo.height}}cm</p>
         <p>{{dogInfo.weight}}kg</p>

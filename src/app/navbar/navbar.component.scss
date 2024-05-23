@@ -12,11 +12,12 @@
         align-items: center;
     }
     
-    @media (max-width: 576px) {
+    @media (max-width: 960px) {
         .container {
             max-width: 100%;
+            padding: 0 0.5rem;
         }
-    }
+      }
 
     .to-home{
         color: var(--dark-base-color);
@@ -26,11 +27,23 @@
         img{
             width: var(--font-size-3);
             height: var(--font-size-3);
-            color: var(--dark-base-color);
-            fill: var(--dark-base-color);
             filter: invert(43%) sepia(44%) saturate(565%) hue-rotate(354deg) brightness(96%) contrast(84%);
         }
+
+        &:hover, &:focus{
+            color: var(--light-base-color);
+            
+            img{
+                filter: invert(91%) sepia(22%) saturate(344%) hue-rotate(328deg) brightness(103%) contrast(98%);
+            }
+        }
+
+        &:focus{
+            outline: none;
+        }
     }
+
+    
 }
 
 

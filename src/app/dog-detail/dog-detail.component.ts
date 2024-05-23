@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DogService } from '../dog.service';
 import { Dog } from '../dog.model';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-dog-detail',
   standalone: true,
-  imports: [NgStyle,RouterLink],
+  imports: [NgClass,RouterLink],
   templateUrl: './dog-detail.component.html',
   styleUrl: './dog-detail.component.scss'
 })
@@ -35,4 +35,6 @@ export class DogDetailComponent {
   goToEditForm(){
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
+
+  
 }

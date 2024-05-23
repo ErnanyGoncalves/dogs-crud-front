@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
 
 
 :root{
@@ -6,7 +7,6 @@
   --font-weight-300: 300;
   --font-weight-400: 400;
   --font-weight-500: 500;
-  --font-weight-700:700;
 
   --male-gender-color: #3188B1;
   --female-gender-color: #E57AA6;
@@ -109,12 +109,14 @@ table {
   h1{
     font-size: var(--font-size-7);
     font-weight: var(--font-weight-500);
+    margin-bottom: 0.5rem;
   }
   h2{
     font-size: var(--font-size-6);
   }
   h3{
     font-size: var(--font-size-5);
+    font-weight: var(--font-weight-500);
   }
   h4{
     font-size: var(--font-size-4);
@@ -129,6 +131,7 @@ table {
   p{
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-300);
+    line-height: 1.2;
   }
 
   h1,h2,h3,h4,h5,h6,p{
@@ -143,11 +146,13 @@ a{
 
   label{
     display: flex;
-    font-weight: var(--font-weight-400);
+    font-weight: var(--font-weight-500);
     flex-direction: column;
+    gap: 0.25rem;
   }
 
   .buttons{
+    margin-top: 1rem;
     display: flex;
     gap: 1rem;
     justify-content: right;
@@ -159,8 +164,8 @@ a{
     border-radius: 25px;
     padding: 0.75rem 1.5rem;
     height: 2.5rem;
-    font-weight: var(--font-weight-400);
-    letter-spacing: 10%;
+    font-weight: var(--font-weight-500);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
@@ -253,6 +258,10 @@ a{
     }
   }
 
+  input,select{
+    height: 1.5rem;
+    box-sizing: border-box;
+  }
 
   input, select, textarea{
     border-radius: 4px;
@@ -262,3 +271,20 @@ a{
     font-size: var(--font-size-sm-1);
     padding: 2px 8px;
   }
+
+  /* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Internet Explorer */
+input[type="number"] {
+  -ms-appearance: textfield;
+}
