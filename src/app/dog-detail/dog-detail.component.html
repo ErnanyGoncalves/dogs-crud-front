@@ -1,27 +1,31 @@
 <div class="detail">
+    <div class="main-info">
     <div class="img-container">
         <img src="{{dogInfo.photo}}" alt="{{dogInfo.name}}">
     </div>
     <div class="info">
         <div>
-        
             <h1 [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">{{dogInfo.name}}</h1>
-            
             <p class="breed">{{dogInfo.breed}}</p>
         </div>
         <div class="body-data" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">
             <p>{{dogInfo.age}} year(s)</p>
-        <p>{{dogInfo.height}}cm</p>
-        <p>{{dogInfo.weight}}kg</p>
-        </div>
-
-        <p>{{dogInfo.about}}</p>
-        
-        <div class="buttons">
-            <button class="cancel" [routerLink]="['/dogs']">Back</button>
-        <button class="edit" (click)="goToEditForm()">Edit</button>
-        <button class="delete" (click)="deleteDog(dogInfo.id)">Delete</button>
-    
+            <p>{{dogInfo.height}}cm</p>
+            <p>{{dogInfo.weight}}kg</p>
         </div>
     </div>
+</div>
+    @if(dogInfo.about){
+        <div class="about">
+            <div class="divisor"></div>
+            <p>{{dogInfo.about}}</p>
+        </div>
+    }
+        <div class="buttons">
+            <button class="cancel" [routerLink]="['/dogs']">Back</button>
+            <div class="actions">
+                <button class="edit" (click)="goToEditForm()">Edit</button>
+                <button class="delete" (click)="deleteDog(dogInfo.id)">Delete</button>
+            </div>
+        </div>
 </div>

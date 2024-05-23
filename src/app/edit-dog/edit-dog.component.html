@@ -82,10 +82,10 @@
             Photo<span class="required">*</span>
         </div>
         <input type="text" name="photo" id="photo" [value]="dog.photo" formControlName="photo" >
-        @if( editDogData.get('photo').touched || !editDogData.get('photo').valid  ){
+        @if( (editDogData.get('photo').touched || !editDogData.get('photo').valid) && editDogData.get('photo').errors?.['invalidUrl'] !== null  ){
             <div>
             @if(editDogData.get('photo').value===''){
-            <small>Photo is required</small>
+                <small>Photo is required</small>
             }
             @else{
                 <small>Invalid URL. It needs to end with .jpg or .png</small>
@@ -100,7 +100,7 @@
     </label>
 </div>
     <div class="buttons">
-    <button class="edit" type="submit">Edit {{dog.name}}</button>
-    <button class="cancel" type="button" [routerLink]="['/dogs']">Cancel</button>
+        <button class="cancel" type="button" [routerLink]="['/dogs']">Cancel</button>
+    <button class="edit" type="submit" [disabled]="!editDogData.valid">Edit {{dog.name}}</button>
 </div>
 </form>

@@ -98,8 +98,7 @@
     </label>
 </div>
     <div class="buttons">
-
-        <button class="confirm" type="submit" [disabled]="!formData.valid || !validateUrl(photo.value)">Create Dog</button>
         <button class="cancel" type="button" [routerLink]="['/dogs']">Cancel</button>
+        <button class="confirm" type="submit" [disabled]="!formData.valid || !validateUrl(photo.value)">Create Dog</button>
     </div>
 </form>

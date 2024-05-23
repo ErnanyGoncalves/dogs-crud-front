@@ -40,6 +40,7 @@ export class EditDogComponent implements OnInit {
 
   validateUrl(photo: FormControl): {[s:string]:boolean} {
     const urlPattern = /^(http|https):\/\/.*\.(jpg|png)$/;
+
     if(!urlPattern.test(photo.value)){
       return {'invalidUrl':true}
     }
