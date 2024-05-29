@@ -42,9 +42,20 @@
 
            @media (max-width: 576px) {
             & {
+                
                 text-align: center;
                 width: 100%;
+                h1,.breed{
+                    margin-right: auto;
+                    margin-left: auto;
+                    width: 304px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
+
+            
         }
     
            h1.male{

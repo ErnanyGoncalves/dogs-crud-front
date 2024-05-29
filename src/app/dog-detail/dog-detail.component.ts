@@ -3,11 +3,14 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DogService } from '../dog.service';
 import { Dog } from '../dog.model';
 import { NgClass } from '@angular/common';
+import { AgePipe } from './age.pipe';
+import { HeightPipe } from './height.pipe';
+import { WeightPipe } from './weight.pipe';
 
 @Component({
   selector: 'app-dog-detail',
   standalone: true,
-  imports: [NgClass,RouterLink],
+  imports: [NgClass,RouterLink,AgePipe,HeightPipe,WeightPipe],
   templateUrl: './dog-detail.component.html',
   styleUrl: './dog-detail.component.scss'
 })

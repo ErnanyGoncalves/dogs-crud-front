@@ -6,7 +6,7 @@
         <div>
             Name<span class="required">*</span>
         </div>
-        <input type="text" name="name" id="name" formControlName="name" [value]="dog.name" >
+        <input type="text" name="name" id="name" formControlName="name" maxlength="12" [value]="dog.name" >
         @if( editDogData.get('name').status === "INVALID" || editDogData.get('name').touched && !editDogData.get('name').valid){
             <div>
             <small>Name is required</small>
@@ -47,7 +47,7 @@
         <div>
             Breed<span class="required">*</span>
         </div>
-        <input type="text" name="breed" id="breed" [value]="dog.breed" formControlName="breed" >
+        <input type="text" name="breed" id="breed" [value]="dog.breed" maxlength="31" formControlName="breed" >
         @if(editDogData.get('breed').status === "INVALID" || editDogData.get('breed').touched && !editDogData.get('breed').valid){
             <div>
             <small>Breed is required</small>

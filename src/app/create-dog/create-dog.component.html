@@ -6,7 +6,7 @@
         <div>
         Name<span class="required">*</span>
     </div>
-        <input type="text" name="name" id="name" ngModel #name="ngModel" required>
+        <input type="text" name="name" id="name" maxlength="12" ngModel #name="ngModel" required>
         @if(name.touched && !name.valid){
             <div>
             <small>Name is required</small>
@@ -45,7 +45,7 @@
         <div>
         Breed<span class="required">*</span>
     </div>
-        <input type="text" name="breed" id="breed" ngModel #breed="ngModel" required>
+        <input type="text" name="breed" id="breed" maxlength="31" ngModel #breed="ngModel" required>
         @if(breed.touched && !breed.valid){
             <div>
             <small>Breed is required</small>

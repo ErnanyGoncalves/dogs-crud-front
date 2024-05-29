@@ -9,9 +9,9 @@
             <p class="breed">{{dogInfo.breed}}</p>
         </div>
         <div class="body-data" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">
-            <p>{{dogInfo.age}} year(s)</p>
-            <p>{{dogInfo.height}}cm</p>
-            <p>{{dogInfo.weight}}kg</p>
+            <p>{{dogInfo.age | age}}</p>
+            <p>{{dogInfo.height | height}}</p>
+            <p>{{dogInfo.weight | weight}}</p>
         </div>
     </div>
 </div>

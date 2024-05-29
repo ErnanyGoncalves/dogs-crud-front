@@ -9,10 +9,16 @@
 
     &.male{
         border: 2px solid var(--male-gender-color);
+        h3{
+            color: var(--male-gender-color);
+        }
     }
 
     &.female{
         border: 2px solid var(--female-gender-color);
+        h3{
+            color: var(--female-gender-color);
+        }
     }
 
     .info{
@@ -22,6 +28,13 @@
         .breed{
             color:var(--dark-gray-color);
             font-style: italic;
+        }
+
+        h3,.breed{
+            width: 270px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
