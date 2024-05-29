@@ -1,5 +1,6 @@
-<h1>Editing {{dog.name}}</h1>
-
+<div class="ellipsis-2">
+<h1 ellipsis-2>Editing {{dog.name}}</h1>
+</div>
 <form [formGroup]="editDogData" (ngSubmit)="onSubmit()">
     <div class="inputs">
     <label for="name">
@@ -101,6 +102,6 @@
 </div>
     <div class="buttons">
         <button class="cancel" type="button" [routerLink]="['/dogs']">Cancel</button>
-    <button class="edit" type="submit" [disabled]="!editDogData.valid">Edit {{dog.name}}</button>
+    <button class="edit" type="submit" [disabled]="!editDogData.valid">Edit Dog</button>
 </div>
 </form>

@@ -1,7 +1,13 @@
 <div [routerLink]="[ '/dogs', dog.id ]" class="card" [ngClass]="{'male': dog.gender === 'male','female': dog.gender === 'female'}">
     <div class="info">
-        <h3>{{dog.name}}</h3>
-        <p class="breed">{{dog.breed}}</p>
+        <div class="ellipsis-1">
+
+            <h3>{{dog.name}}</h3>
+        </div>
+        <div class="ellipsis-1">
+            <p class="breed">{{dog.breed}}</p>
+
+        </div>
     </div>
     <div class="img-container">
     <img src="{{dog.photo}}" alt="{{dog.name}}">
