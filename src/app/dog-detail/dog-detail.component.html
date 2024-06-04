@@ -3,14 +3,9 @@
     <div class="img-container">
         <img src="{{dogInfo.photo}}" alt="{{dogInfo.name}}">
     </div>
-    <div class="info">
-       
-            
-            <h1 class="ellipsis-1" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">{{dogInfo.name}}</h1>
-            
-            <p class="breed ellipsis-1" >{{dogInfo.breed}}</p>
-            
-        
+    <div class="info">            
+            <h1 class="ellipsis-1" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">{{dogInfo.name}}</h1>            
+            <p class="breed ellipsis-1" >{{dogInfo.breed}}</p>            
         <div class="body-data" [ngClass]="{'male': dogInfo.gender === 'male', 'female': dogInfo.gender === 'female'}">
             <p>{{dogInfo.age | age}}</p>
             <p>{{dogInfo.height | height}}</p>
