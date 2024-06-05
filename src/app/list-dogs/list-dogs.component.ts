@@ -13,11 +13,20 @@ import { RouterLink } from '@angular/router';
 })
 export class ListDogsComponent implements OnInit {
   dogs : Dog[] = [];
-  
+  isLoading: boolean =  false;
+  error:string = null;
 
   constructor(private dogService:DogService){}
 
   ngOnInit()  {
-    this.dogs = this.dogService.getDogs();
+    this.isLoading=true;
+    this.dogService.getDogs().subscribe({next:(dogs)=>{
+      this.dogs=dogs
+      this.isLoading=false;
+    },error:(error)=>{
+      this.isLoading = false;
+      this.error = error.statusText;
+    }});
+
   }
 }

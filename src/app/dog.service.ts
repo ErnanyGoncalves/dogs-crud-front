@@ -1,35 +1,32 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Dog } from './dog.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DogService {
 
-  private dogs : Dog[] = []
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getDogs(){
-    return this.dogs;
+    return this.http.get<Dog[]>("http://localhost:8080/dogs");
   }
 
   getDog(id:number){
-    return this.dogs.filter((d:Dog)=>d.id === id)[0];
+    return this.http.get<Dog>(`http://localhost:8080/dogs/${id}`);
   }
 
   postDog(dog: Dog){
-    this.dogs.push({...dog,id:Date.now()});
+    return this.http.post("http://localhost:8080/dogs",dog);
   }
 
   editDog(id:number, dog: Dog){
-    this.dogs = this.dogs
-    .filter((d: Dog) => d.id !== id) 
-    .concat({...dog,id});
+    return this.http.put(`http://localhost:8080/dogs/${id}`,dog);
   }
 
   deleteDog(id:number){
-    this.dogs = this.dogs.filter((d: Dog) => d.id !== id);
+    return this.http.delete(`http://localhost:8080/dogs/${id}`);
   }
 
 }

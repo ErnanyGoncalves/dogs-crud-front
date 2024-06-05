@@ -15,24 +15,26 @@ import { WeightPipe } from './weight.pipe';
   styleUrl: './dog-detail.component.scss'
 })
 export class DogDetailComponent {
-  dogInfo : Dog | null = null;
-
+  dog : Dog = null;
+  isLoading: boolean = false;
   constructor(private route:ActivatedRoute,private router:Router,private dogService:DogService){}
 
 
   ngOnInit()  {
-    const id:number | undefined = +this.route.snapshot.paramMap.get('id');
-    if(id){
-      this.dogInfo = this.dogService.getDog(id);
-    }else{
-      this.router.navigate(['dogs'])
-    }
 
+    const id:number | undefined = +this.route.snapshot.paramMap.get('id');
+      this.isLoading=true;
+      this.dogService.getDog(id).subscribe({next:(dog)=>{
+        this.dog=dog;
+        this.isLoading=false;
+      },error:(error)=>{
+        this.router.navigate(['dogs'])
+      }}); 
   }
 
   deleteDog(id:number){
-    this.dogService.deleteDog(id);
-    this.router.navigate(['dogs'])
+    this.dogService.deleteDog(id).subscribe({complete:()=>this.router.navigate(['dogs'])});
+    
   }
 
   goToEditForm(){

@@ -12,29 +12,34 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './edit-dog.component.scss'
 })
 export class EditDogComponent implements OnInit {
-  dog : Dog | null = null;
-  editDogData: FormGroup;
+  dog : Dog  = null;
+  isLoading :boolean = false;
+  editDogData: FormGroup = null;
 
   constructor(private dogService:DogService,private router: Router,private route: ActivatedRoute){}
 
   ngOnInit()  {
     
     const id:number | undefined = +this.route.snapshot.paramMap.get('id');
-    if(id){
-      this.dog = this.dogService.getDog(id);
-      this.editDogData = new FormGroup({
-        'name':  new FormControl(this.dog.name, Validators.required),
-        'age': new FormControl(this.dog.age, [Validators.required,Validators.min(0),Validators.max(20)]),
-        'gender': new FormControl(this.dog.gender, Validators.required),
-        'breed': new FormControl(this.dog.breed, Validators.required),
-        'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1)]),
-        'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1)]),
-        'photo': new FormControl(this.dog.photo, [Validators.required,this.validateUrl.bind(this)]),
-        'about': new FormControl(this.dog.about)
-      })
-    }else{
-      this.router.navigate(['dogs'])
-    }
+    this.isLoading=true;
+      this.dogService.getDog(id).subscribe({next:(dog)=>{
+        this.dog=dog;
+        this.editDogData = new FormGroup({
+          'name':  new FormControl(this.dog.name, Validators.required),
+          'age': new FormControl(this.dog.age, [Validators.required,Validators.min(0),Validators.max(20)]),
+          'gender': new FormControl(this.dog.gender, Validators.required),
+          'breed': new FormControl(this.dog.breed, Validators.required),
+          'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1)]),
+          'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1)]),
+          'photo': new FormControl(this.dog.photo, [Validators.required,this.validateUrl.bind(this)]),
+          'about': new FormControl(this.dog.about)
+        })
+        
+      },error:(error)=>{
+        this.router.navigate(['dogs'])
+      },complete:()=>this.isLoading=false}); 
+      
+    
 
   }
 
@@ -50,8 +55,10 @@ export class EditDogComponent implements OnInit {
 
   onSubmit(){
     if(this.editDogData['valid']  ){
-    this.dogService.editDog(this.dog.id,this.editDogData['value'] as Dog);
-    this.router.navigate(['dogs']);
+    this.dogService.editDog(this.dog.id,this.editDogData['value'] as Dog).subscribe({
+      complete:()=>this.router.navigate(['dogs'])
+    });
+    
     }
   }
 }

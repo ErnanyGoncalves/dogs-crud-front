@@ -21,10 +21,9 @@ export class CreateDogComponent {
   }
 
   onSubmit(formData: HTMLFormElement){
-    
     if(formData['valid'] && this.validateUrl(formData['value'].photo)){
-    this.dogService.postDog(formData['value'] as Dog);
-    this.router.navigate(['dogs']);
+    this.dogService.postDog(formData['value'] as Dog).subscribe({complete:()=>this.router.navigate(['dogs'])});
+    
     }
   }
 }
