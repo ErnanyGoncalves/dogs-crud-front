@@ -109,22 +109,21 @@ table {
   h1{
     font-size: var(--font-size-7);
     font-weight: var(--font-weight-500);
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   h2{
     font-size: var(--font-size-6);
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.25rem;
+    font-weight: var(--font-weight-500);
+    
   }
   h3{
     font-size: var(--font-size-5);
     font-weight: var(--font-weight-500);
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.25rem;
+    
   }
   h4{
     font-size: var(--font-size-4);
+    
   }
   h5{
     font-size: var(--font-size-3);
@@ -136,11 +135,12 @@ table {
   p{
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-300);
-    line-height: 1.2;
+    
   }
 
-  h1,h2,h3,h4,h5,h6,p{
-    color:var(--black-color)
+  h1,h2,h3,h4,h5,h6,p,label,span{
+    color:var(--black-color);
+    line-height: 1.2;
   }
 
 

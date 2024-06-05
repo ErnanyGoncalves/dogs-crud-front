@@ -19,13 +19,16 @@
         Age<span class="required">*</span>
     </div>
         <input type="number" name="age" id="age" min="0" max="20" ngModel #age="ngModel" required>
-        @if(age.touched && !age.valid && age.value===""){
+        
+        @if(age.touched && !age.valid){
+        @if(age.errors?.required){
             <div>
             <small>Age is required</small>
             </div>
-        }@else if(age.touched && !age.valid &&(age.value < 0 ||age.value > 20)){
-            <small>The age is between 0 and 20</small>
+        }@else if(age.errors?.min || age.errors?.max){
+            <small>The age is between 0 and 20 years old</small>
         }
+    }
     </label>
 
     <label for="gender">
@@ -58,26 +61,38 @@
         <div>
         Height<span class="required">*</span>
     </div>
-        <input type="number" name="height" id="height" min="0.1" ngModel #height="ngModel" required>
+        <input type="number" name="height" id="height" min="0.1" max="112" ngModel #height="ngModel" required>
         <div>
-        @if(height.touched  && !height.valid && height.value===""){
-            <small>Height is required</small>
-        }@else if(height.touched && !height.valid &&height.value < 0.1){
-            <small>The height minimum is 0.1 cm</small>
+        
+
+        @if(height.touched && !height.valid){
+            @if(height.errors?.required){
+                <div>
+                <small>Height is required</small>
+                </div>
+            }@else if(height.errors?.min || height.errors?.max){
+                <small>The height is between 0.1 and 112 cm</small>
+            }
         }
+        
     </div>
     </label>
     <label for="weight">
         <div>
         Weight<span class="required">*</span>
     </div>
-        <input type="number" name="weight" id="weight" min="0.1" ngModel #weight="ngModel" required>
+        <input type="number" name="weight" id="weight" min="0.1" max="156" ngModel #weight="ngModel" required>
         
         <div>
-        @if(weight.touched && !weight.valid && weight.value===""){
-            <small>Weight is required</small>
-        }@else if(weight.touched && !weight.valid &&weight.value < 0.1){
-            <small>The weight minimum is 0.1 kg</small>
+        
+        @if(weight.touched && !weight.valid){
+            @if(weight.errors?.required){
+                <div>
+                <small>Weight is required</small>
+                </div>
+            }@else if(weight.errors?.min || weight.errors?.max){
+                <small>The weight is between 0.1 and 156 kg</small>
+            }
         }
     </div>
     </label>
@@ -86,16 +101,16 @@
         <div>
         Photo<span class="required">*</span>
     </div>
-        <input type="text" name="photo" id="photo" ngModel #photo="ngModel" required>
+        <input  type="text" name="photo" id="photo" ngModel #photo="ngModel" required>
         <div>
-        @if(formData.submitted || photo.touched  ){
-            @if(!photo.valid || photo.value===''){
-            <small>Photo is required</small>
-            }
-            @else if(!validateUrl(photo.value)){
-                <small>Invalid URL. It needs to end with .jpg or .png</small>
-            }
-        }
+        
+
+        @if(photo.touched) {
+    @if(photo.errors?.required){
+        <small>Photo is required</small>
+    }@else if(!photo.errors?.required && !validateUrl(photo.value)){
+        <small>Invalid URL. It needs to end with .jpg or .png</small>}
+   }
     </div>
     </label>
 

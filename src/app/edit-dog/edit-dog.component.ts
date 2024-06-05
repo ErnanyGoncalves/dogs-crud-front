@@ -14,6 +14,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class EditDogComponent implements OnInit {
   dog : Dog  = null;
   isLoading :boolean = false;
+  aboutLength: number = 0;
   editDogData: FormGroup = null;
 
   constructor(private dogService:DogService,private router: Router,private route: ActivatedRoute){}
@@ -29,17 +30,21 @@ export class EditDogComponent implements OnInit {
           'age': new FormControl(this.dog.age, [Validators.required,Validators.min(0),Validators.max(20)]),
           'gender': new FormControl(this.dog.gender, Validators.required),
           'breed': new FormControl(this.dog.breed, Validators.required),
-          'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1)]),
-          'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1)]),
+          'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1),Validators.max(112)]),
+          'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1),Validators.max(156)]),
           'photo': new FormControl(this.dog.photo, [Validators.required,this.validateUrl.bind(this)]),
           'about': new FormControl(this.dog.about)
         })
+
+        this.aboutLength = this.dog.about?.length || 0;
+        this.editDogData.get('about')?.valueChanges.subscribe(value => {
+          
+          this.aboutLength = value?.length || 0;
+        });
         
       },error:(error)=>{
         this.router.navigate(['dogs'])
       },complete:()=>this.isLoading=false}); 
-      
-    
 
   }
 
