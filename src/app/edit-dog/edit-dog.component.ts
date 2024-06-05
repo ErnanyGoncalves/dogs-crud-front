@@ -43,6 +43,7 @@ export class EditDogComponent implements OnInit {
 
   }
 
+
   validateUrl(photo: FormControl): {[s:string]:boolean} {
     const urlPattern = /^(http|https):\/\/.*\.(jpg|png)$/;
 
@@ -52,6 +53,25 @@ export class EditDogComponent implements OnInit {
       return null;
     
   }
+
+
+  isFieldRequiredError(key:string) {
+    const fieldControl = this.editDogData.get(key);
+    return fieldControl?.hasError('required') && fieldControl?.touched;
+  }
+
+  isKeyRangeError(key:string) {
+    const keyControl = this.editDogData.get(key);
+    return keyControl?.touched && (keyControl?.hasError('min') || keyControl?.hasError('max'));
+  }
+
+  
+
+  isPhotoInvalidUrl() {
+    const photoControl = this.editDogData.get('photo');
+    return photoControl?.hasError('invalidUrl') && (photoControl?.touched || photoControl?.dirty);
+  }
+
 
   onSubmit(){
     if(this.editDogData['valid']  ){

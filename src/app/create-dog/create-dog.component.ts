@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './create-dog.component.scss'
 })
 export class CreateDogComponent {
+  aboutText:string = "";
 
   constructor(private dogService:DogService,private router:Router){}
 

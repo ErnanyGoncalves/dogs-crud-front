@@ -75,3 +75,10 @@ label[for="name"] {
       }
   }
   }
+
+  .countChars{
+    margin-left: auto;
+    color: var(--dark-gray-color);
+    font-weight: var(--font-weight-400);
+    font-size: var(--font-size-sm-1);
+  }
