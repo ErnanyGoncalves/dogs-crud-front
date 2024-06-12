@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Dog } from './dog.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class DogService {
     return this.http.get<Dog>(`http://localhost:8080/dogs/${id}`);
   }
 
-  postDog(dog: Dog){
+  postDog(dog: FormData){
     return this.http.post("http://localhost:8080/dogs",dog);
   }
 

@@ -32,7 +32,7 @@ export class EditDogComponent implements OnInit {
           'breed': new FormControl(this.dog.breed, Validators.required),
           'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1),Validators.max(112)]),
           'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1),Validators.max(156)]),
-          'photo': new FormControl(this.dog.photo, [Validators.required,this.validateUrl.bind(this)]),
+          'photo': new FormControl(this.dog.photo, [Validators.required]),
           'about': new FormControl(this.dog.about)
         })
 
@@ -49,17 +49,6 @@ export class EditDogComponent implements OnInit {
   }
 
 
-  validateUrl(photo: FormControl): {[s:string]:boolean} {
-    const urlPattern = /^(http|https):\/\/.*\.(jpg|png)$/;
-
-    if(!urlPattern.test(photo.value)){
-      return {'invalidUrl':true}
-    }
-      return null;
-    
-  }
-
-
   isFieldRequiredError(key:string) {
     const fieldControl = this.editDogData.get(key);
     return fieldControl?.hasError('required') && fieldControl?.touched;
@@ -68,13 +57,6 @@ export class EditDogComponent implements OnInit {
   isKeyRangeError(key:string) {
     const keyControl = this.editDogData.get(key);
     return keyControl?.touched && (keyControl?.hasError('min') || keyControl?.hasError('max'));
-  }
-
-  
-
-  isPhotoInvalidUrl() {
-    const photoControl = this.editDogData.get('photo');
-    return photoControl?.hasError('invalidUrl') && (photoControl?.touched || photoControl?.dirty);
   }
 
 

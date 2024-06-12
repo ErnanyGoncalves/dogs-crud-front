@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { DogService } from '../dog.service';
-import { Dog } from '../dog.model';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -13,18 +12,39 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class CreateDogComponent {
   aboutText:string = "";
-
+  selectedFile: File | null = null;
   constructor(private dogService:DogService,private router:Router){}
 
-  validateUrl(url: string): boolean {
-    const urlPattern = /^(http|https):\/\/.*\.(jpg|png)$/;
-    return urlPattern.test(url);
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
   }
+  
+  onSubmit(formData: NgForm){
 
-  onSubmit(formData: HTMLFormElement){
-    if(formData['valid'] && this.validateUrl(formData['value'].photo)){
-    this.dogService.postDog(formData['value'] as Dog).subscribe({complete:()=>this.router.navigate(['dogs'])});
-    
+    const dogData = new FormData();
+
+    const dog = {
+      name: formData.value.name,
+      age: formData.value.age,
+      gender: formData.value.gender,
+      breed: formData.value.breed,
+      height: formData.value.height,
+      weight: formData.value.weight,
+      about: formData.value.about
+    };
+
+    dogData.append('dog', new Blob([JSON.stringify(dog)], { type: 'application/json' }));
+
+    if (this.selectedFile) {
+      dogData.append('photo', this.selectedFile,this.selectedFile.name);
+    }
+
+    if (dogData) {
+      this.dogService.postDog(dogData).subscribe({
+        complete: () => this.router.navigate(['dogs'])
+      });
     }
   }
 }
