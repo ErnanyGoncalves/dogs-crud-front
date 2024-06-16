@@ -92,14 +92,8 @@
         <div>
             Photo<span class="required">*</span>
         </div>
-        <input type="file" name="photo" id="photo" formControlName="photo" >
-        <!-- <div>
-        @if( isFieldRequiredError("photo")){
-                <small>Photo is required</small>
-        }@else if(isPhotoInvalidUrl()){
-            <small>Invalid URL. It needs to end with .jpg or .png</small>
-        }
-    </div> -->
+        <input type="file" name="photo" id="photo" (change)="onFileChange($event)" formControlName="photo" accept="image/*" >
+        
     </label>
 
     <label for="about">

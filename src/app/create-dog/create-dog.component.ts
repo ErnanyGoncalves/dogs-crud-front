@@ -12,6 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class CreateDogComponent {
   aboutText:string = "";
+  
   selectedFile: File | null = null;
   constructor(private dogService:DogService,private router:Router){}
 

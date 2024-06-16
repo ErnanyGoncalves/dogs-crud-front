@@ -16,8 +16,17 @@ export class EditDogComponent implements OnInit {
   isLoading :boolean = false;
   aboutLength: number = 0;
   editDogData: FormGroup = null;
+  selectedFile: File | null = null;
+
+  
 
   constructor(private dogService:DogService,private router: Router,private route: ActivatedRoute){}
+
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
 
   ngOnInit()  {
     
@@ -32,15 +41,15 @@ export class EditDogComponent implements OnInit {
           'breed': new FormControl(this.dog.breed, Validators.required),
           'height': new FormControl(this.dog.height,[Validators.required,Validators.min(0.1),Validators.max(112)]),
           'weight': new FormControl(this.dog.weight,[Validators.required,Validators.min(0.1),Validators.max(156)]),
-          'photo': new FormControl(this.dog.photo, [Validators.required]),
+          'photo': new FormControl(this.dog.photo),
           'about': new FormControl(this.dog.about)
         })
 
         this.aboutLength = this.dog.about?.length || 0;
         this.editDogData.get('about')?.valueChanges.subscribe(value => {
-          
           this.aboutLength = value?.length || 0;
         });
+        
         
       },error:(error)=>{
         this.router.navigate(['dogs'])
@@ -61,8 +70,27 @@ export class EditDogComponent implements OnInit {
 
 
   onSubmit(){
-    if(this.editDogData['valid']  ){
-    this.dogService.editDog(this.dog.id,this.editDogData['value'] as Dog).subscribe({
+
+    const dogData = new FormData();
+
+    const dog = {
+      name: this.editDogData.value.name,
+      age: this.editDogData.value.age,
+      gender: this.editDogData.value.gender,
+      breed: this.editDogData.value.breed,
+      height: this.editDogData.value.height,
+      weight: this.editDogData.value.weight,
+      about: this.editDogData.value.about
+    };
+
+    dogData.append('dog', new Blob([JSON.stringify(dog)], { type: 'application/json' }));
+
+    if (this.selectedFile) {
+      dogData.append('photo', this.selectedFile,this.selectedFile.name);
+    }
+
+    if(dogData ){
+    this.dogService.editDog(this.dog.id,dogData).subscribe({
       complete:()=>this.router.navigate(['dogs'])
     });
     

@@ -21,7 +21,7 @@ export class DogService {
     return this.http.post("http://localhost:8080/dogs",dog);
   }
 
-  editDog(id:number, dog: Dog){
+  editDog(id:number, dog: FormData){
     return this.http.put(`http://localhost:8080/dogs/${id}`,dog);
   }
 
