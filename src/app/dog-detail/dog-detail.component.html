@@ -25,7 +25,7 @@
         </div>
     }
         <div class="buttons">
-            <button class="cancel" [routerLink]="['/dogs']">Back</button>
+            <button class="cancel" (click)="navigateToDogs()">Back</button>
             <div class="actions">
                 <button class="edit" (click)="goToEditForm()">Edit</button>
                 <button class="delete" (click)="deleteDog(dog.id)">Delete</button>
